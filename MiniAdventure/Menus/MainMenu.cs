@@ -1,4 +1,5 @@
 ﻿using MiniAdventure.Entities;
+using MiniAdventure.Fighting;
 
 namespace MiniAdventure.Menus;
 
@@ -12,13 +13,14 @@ public class MainMenu
 
         Console.WriteLine("Welcome to the game MiniAdventure! Please choose a username: ");
         string userName = Console.ReadLine().ToLower();
+        Console.Clear();
         string className = "";
-        Console.WriteLine($"Welcome {userName} Please choose a game character 1. [Mage] or 2. [Warrior]");
-
+        Console.WriteLine($"Welcome {userName} Please choose a game character 1. [Mage] or 2. [Warrior]");               
+  
         bool validAnswer = false;
         while (validAnswer != true)
         {
-            className = Console.ReadLine(); // fixa så du kan skriva A B C D
+            className = Console.ReadLine()?? ""; // fixa så du kan skriva A B C D
 
             if (className == "1")
 
@@ -35,6 +37,7 @@ public class MainMenu
                 Console.WriteLine("Enter an valid Character!");
 
         }
+        Mobs mob = Mobs.GetRandomMob(Mobs.mobsArray);
         Player player = new Player(className);
         Console.WriteLine();
         Console.WriteLine($" Because you choose {className}\n Your starting values are, ");
@@ -57,28 +60,27 @@ public class MainMenu
 
             string menuSelection = Console.ReadLine();
 
+
             switch (menuSelection)
             {
                 case "1":
-                    
-                    // här ska jag kalla på Adventure Menu
-
+                    AdventureMenu.AdventureSelection(player, mob);                  
                     break;
                 case "2":
                     Store.VisitStore(player);
                     break;
-
                 case "3":
-                    player.Stats();
-                    Console.WriteLine($"Here is your stats: {player.Stats}");
+                    Console.WriteLine("====CLASS-STATS====");
+                    player.Stats();                    
+                    Console.WriteLine("Press enter to continue");
+                    Console.ReadKey();
+                    Console.Clear();
                     break;
                 case "5":
                     Console.WriteLine("Exiting game. Goodbye!");
                     Environment.Exit(0);
-
                     break;
                 default:
-
                     Console.WriteLine("");
                     Console.WriteLine("Try agin! sa");
                     break;
