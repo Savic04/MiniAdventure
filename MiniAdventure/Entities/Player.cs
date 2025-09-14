@@ -16,7 +16,7 @@ public class Player
             
             MaxHp = 100;
             Damage = 15;
-            Gold = 20;
+            Gold = 0;
             CurrentHP = MaxHp;          
             hpRegeneration = 10;
         }
@@ -25,7 +25,7 @@ public class Player
             MaxHp = 120;
             CurrentHP = MaxHp;
             Damage = 10;
-            Gold = 15;
+            Gold = 0;
             hpRegeneration = 20;
         }
     }
@@ -34,7 +34,7 @@ public class Player
     {
     }
 
-    //All stats thats showing
+    // Show all the stats for the player
     public void Stats()
     {
          Console.WriteLine(" _________________");

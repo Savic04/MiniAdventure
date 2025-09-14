@@ -10,7 +10,6 @@ public class Mobs
    
     public static string[] mobsArray = { "Sven", "Näcken", "Vendigo", "Goblin", "Ghost" };
     public static string[] seconfPathArray = { "Oskar", "Nexus", "Zeus", "Freddy Kruger" };
-    public static string[] thirdPathArrat = { "Malakor", "Hannah", "Ophilluis", "Strongius" }; 
      
     public Mobs()
     {       

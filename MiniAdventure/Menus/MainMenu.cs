@@ -20,7 +20,7 @@ public class MainMenu
         bool validAnswer = false;
         while (validAnswer != true)
         {
-            className = Console.ReadLine()?? ""; // fixa så du kan skriva A B C D
+            className = Console.ReadLine()?? ""; 
 
             if (className == "1")
 
@@ -37,12 +37,11 @@ public class MainMenu
                 Console.WriteLine("Enter an valid Character!");
 
         }
-        Mobs mob = Mobs.GetRandomMob(Mobs.mobsArray);
         Player player = new Player(className);
         Console.WriteLine();
         Console.WriteLine($" Because you choose {className}\n Your starting values are, ");
         player.Stats();
-
+        Mobs mob = new Mobs();
         bool GameIsRunning = true;
         while (GameIsRunning)
         {
@@ -58,17 +57,22 @@ public class MainMenu
 
             Console.WriteLine("\nEnter your choice:");
 
-            string menuSelection = Console.ReadLine();
+            string menuSelection = Console.ReadLine()??"";
 
 
             switch (menuSelection)
             {
                 case "1":
-                    AdventureMenu.AdventureSelection(player, mob);                  
+                    AdventureMenu.AdventureSelection(player, mob);  
+                    if(player.CurrentHP <= 0)
+                    {
+                        Console.WriteLine("Game over bitch! Get good! shit player, especially robin!");
+                        Environment.Exit(0);
+                    }
                     break;
-                case "2":
-                    Store.VisitStore(player);
-                    break;
+                //case "2":
+               //     Store.VisitStore(player);               öppnar senare
+                  // break;
                 case "3":
                     Console.WriteLine("====CLASS-STATS====");
                     player.Stats();                    
@@ -82,7 +86,7 @@ public class MainMenu
                     break;
                 default:
                     Console.WriteLine("");
-                    Console.WriteLine("Try agin! sa");
+                    Console.WriteLine($"Try again! {userName}");
                     break;
             }
         }                 

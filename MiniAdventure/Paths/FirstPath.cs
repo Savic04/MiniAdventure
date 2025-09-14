@@ -30,8 +30,6 @@ public class FirstPath
         Console.WriteLine();
         Console.WriteLine("Now he woke up and realised he had been dragged into the dark forest by something mysterical");
         Console.WriteLine();
-        Console.WriteLine($"You just encounterd a Monster what do you want to do? ");
-         
- 
+        Console.WriteLine($"You just encounterd a Monster what do you want to do? ");      
     }
 }
